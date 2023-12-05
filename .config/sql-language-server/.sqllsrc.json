@@ -1,0 +1,14 @@
+{
+  "connections": [
+    {
+      "name": "sql-language-server",
+      "adapter": "mysql",
+      "host": "192.168.0.8",
+      "port": 13777,
+      "user": "root",
+      "password": "axqyJ1zGzdbLpdg",
+      "database": "asdfdb",
+      "projectPaths": ["/home/asdf/project/site/express/"]
+    }
+  ]
+}
