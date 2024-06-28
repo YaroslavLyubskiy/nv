@@ -75,6 +75,7 @@ require'lspconfig'.sqlls.setup{
 }
 
 require("lspconfig").tsserver.setup{}
+
 require("lspconfig").volar.setup{}
 
 return M

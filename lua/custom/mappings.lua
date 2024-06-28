@@ -3,7 +3,6 @@ local M = {}
 M.abc = {
   n = {
     ["<leader>t"] = {"<cmd> Telescope lsp_document_symbols <CR>", "LSP document symbols"},
-    ["<leader>v"] = {"<cmd> Telescope registers <CR>", "Registers"},
 
     ["<leader>f"] = { "<cmd> Telescope git_files <CR>", "Git files" },
     ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
@@ -23,13 +22,18 @@ M.abc = {
     ["<leader>df"] = { "<cmd> DiffviewFileHistory % <CR>", "Diffview current file history" },
     ["<leader>de"] = { "<cmd> DiffviewFileHistory <CR>", "Diffview current branch history" },
 
-
-    ["<leader>e"] = { "<cmd> DapStepOver <CR>zz", "" },
-    ["<leader>E"] = { "<cmd> DapStepInto <CR>zz", "" },
-    ["<leader>b"] = { "<cmd> DapToggleBreakpoint <CR>", "" },
-    ["<leader>h"] = { "<cmd> lua require('dapui').toggle() <CR>", "" },
+    ["<leader>ee"] = { "<cmd> DapStepOver <CR>zz", "Debug step over" },
+    ["<leader>EE"] = { "<cmd> DapStepInto <CR>zz", "Debug step into" },
+    ["<leader>eb"] = { "<cmd> DapToggleBreakpoint <CR>", "Debug toggle breakpoint" },
+    ["<leader>et"] = { "<cmd> lua require('dapui').toggle() <CR>", "Debug toggle ui" },
 
     ["<leader>y"] = { "<plug>OSCYankOperator", "Yank over ssh" },
+    ["<leader>R"] = { "<plug>RestNvim", "REST client" },
+
+    ["<leader>s"] = { "<cmd> !echo % <CR>", "Print current file name" },
+    ["<leader>S"] = { "<cmd> !cat % <CR>", "Print current file content" },
+
+    ["<leader>o"] = { "<cmd> Lspsaga outline <CR>", "Outline" },
 
     ["<leader>q"] = {
       function()
@@ -44,6 +48,8 @@ M.abc = {
     ["<leader>m"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
 
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
+
+    ["<leader>w"] = { "<cmd> wa <CR> <cmd> q <CR>", "Write and close" },
 
     ["<S-Up>"] = {"<cmd> m-2<CR>=<CR>"},
     ["<S-Down>"] = {"<cmd> m+1<CR>=<CR>"},

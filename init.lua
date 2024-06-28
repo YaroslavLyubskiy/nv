@@ -22,21 +22,6 @@ require "plugins"
 
 require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
 
-require'treesitter-context'.setup{
-  enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-  max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-  min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
-  line_numbers = true,
-  multiline_threshold = 20, -- Maximum number of lines to show for a single context
-  trim_scope = 'outer', -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
-  mode = 'cursor',  -- Line used to calculate context. Choices: 'cursor', 'topline'
-  -- Separator between context and content. Should be a single character string, like '-'.
-  -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
-  separator = nil,
-  zindex = 20, -- The Z-index of the context window
-  on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
-}
-
 local actions = require("diffview.actions")
 
 require("diffview").setup({
@@ -52,6 +37,12 @@ require("diffview").setup({
       { "n", "<leader>cA",  actions.conflict_choose_all("all"),     { desc = "Choose all the versions of a conflict for the whole file" } },
     }
   }
+})
+
+vim.diagnostic.config({
+  float = {
+    width = 90,
+  },
 })
 
 require('lint').linters_by_ft = {
@@ -87,7 +78,7 @@ local severities = {
 }
 
 require('lint').linters.phpcs = {
-  cmd = 'phpcs',
+  cmd = '/home/asdf/bin/phpcs',
   stdin = true,
   args = {
     '--standard=PSR12',

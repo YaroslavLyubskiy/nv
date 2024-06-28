@@ -31,7 +31,7 @@ M.general = {
 
     -- line numbers
     ["<leader>n"] = { "<cmd> set nu! <CR>", "Toggle line number" },
-    ["<leader>rn"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
+    ["<leader>N"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
 
     -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
     -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
@@ -43,7 +43,7 @@ M.general = {
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
 
     -- new buffer
-    ["<leader>b"] = { "<cmd> enew <CR>", "New buffer" },
+    ["<leader>cb"] = { "<cmd> enew <CR>", "New buffer" },
     ["<leader>ch"] = { "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet" },
 
     ["<leader>fm"] = {
@@ -165,14 +165,14 @@ M.lspconfig = {
       "LSP signature help",
     },
 
-    ["<leader>D"] = {
+    ["<leader>ld"] = {
       function()
         vim.lsp.buf.type_definition()
       end,
       "LSP definition type",
     },
 
-    ["<leader>ra"] = {
+    ["<leader>la"] = {
       function()
         require("nvchad.renamer").open()
       end,
@@ -305,7 +305,7 @@ M.gitsigns = {
 
   n = {
     -- Navigation through hunks
-    ["]c"] = {
+    ["<leader>hj"] = {
       function()
         if vim.wo.diff then
           return "]c"
@@ -319,7 +319,7 @@ M.gitsigns = {
       opts = { expr = true },
     },
 
-    ["[c"] = {
+    ["<leader>hk"] = {
       function()
         if vim.wo.diff then
           return "[c"
@@ -334,28 +334,26 @@ M.gitsigns = {
     },
 
     -- Actions
-    ["<leader>rh"] = {
+    ["<leader>hr"] = {
       function()
         require("gitsigns").reset_hunk()
       end,
       "Reset hunk",
     },
 
-    ["<leader>ph"] = {
+    ["<leader>hp"] = {
       function()
         require("gitsigns").preview_hunk()
       end,
       "Preview hunk",
     },
 
-    ["<leader>gb"] = {
-      function()
-        package.loaded.gitsigns.blame_line()
-      end,
+    ["<leader>hb"] = {
+      "<cmd> Git blame <CR>",
       "Blame line",
     },
 
-    ["<leader>td"] = {
+    ["<leader>hd"] = {
       function()
         require("gitsigns").toggle_deleted()
       end,

@@ -2,9 +2,13 @@
 local M = {}
 
 vim.opt.clipboard = "unnamedplus"
+vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 16
+vim.opt.pumheight = 32
 vim.cmd('set autoindent')
 vim.cmd('set fillchars+=diff:╱')
-vim.cmd('set colorcolumn=120')
+-- vim.cmd('set colorcolumn=120')
+vim.cmd('set wildmenu')
 
 local function open_nvim_tree(data)
 
@@ -40,7 +44,10 @@ M.ui = {
   theme_toggle = { "oxocarbon", "one_light" },
   statusline = {
     theme = "vscode_colored"
-  }
+  },
+  cmp = {
+    style = "flat_light",
+  },
 }
 M.plugins = 'custom.plugins'
 M.mappings = require "custom.mappings"
